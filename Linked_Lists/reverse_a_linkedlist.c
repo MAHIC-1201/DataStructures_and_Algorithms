@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+/// ITERATIVELY REVERESE A LINKED LIST
 struct Node
 {
     int data;
@@ -68,6 +69,9 @@ void Delete(int n) // deletes node at nth posiion
 // }
 void Reverse()
 {
+    // prev pointer stores address of the previous node
+    // next stores address to next node
+    // initially prev=NULL;therefore current->next=NULL ;therefore the first address of current node becomes NULL
     struct Node *current, *prev, *next;
     current = head;
     prev = NULL;
@@ -78,7 +82,7 @@ void Reverse()
         prev = current;
         current = next;
     }
-    head = prev;
+    head = prev; // prev points to last node of the list ;here current and next have become NULL
 }
 void Print()
 {
