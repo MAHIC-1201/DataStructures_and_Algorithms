@@ -1,6 +1,6 @@
 #include<stdio.h>
 int front=-1,rear=-1;
-//in an empty queue ,front and rear index=-1
+
 int a[10];
 
 void Print()
@@ -22,15 +22,14 @@ int IsEmpty()
     }
     else
     {
-        
         return 0;
     }
 }
 void Enqueue(int x)
 {
-    if(rear==10-1)
+    if((rear+1)%10==front)
     {
-        printf("Queue is full \n");
+        printf(" Circular  Queue is full \n");
     }
     else if(IsEmpty())
     
@@ -39,7 +38,7 @@ void Enqueue(int x)
     }
     else
     {
-        rear=rear+1;
+        rear=(rear+1)%10;
     }
     a[rear]=x;
 }
@@ -55,7 +54,7 @@ int Dequeue()
     }
     else
     {
-        front=front+1;
+        front=(front+1)%10;
 
     }
 }
@@ -71,6 +70,22 @@ int main()
     Enqueue(5);
     Dequeue();
     Print();
+    Enqueue(4);
+    Enqueue(7);
+    Enqueue(9);
+    Enqueue(12);
+    Enqueue(13);
+    Enqueue(15);
     
+    Print();
+    
+    Dequeue();
+    
+    Print();
+    printf("%d",front);
+    Enqueue(16);
+    Print();
+    printf("%d",rear);
+
 
 }
