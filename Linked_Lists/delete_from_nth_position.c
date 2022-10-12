@@ -52,6 +52,25 @@ void Delete(int n)//deletes node at nth posiion
 
 
 }
+// void Delete2(int n)
+// {
+//     struct Node* temp2=head;
+//     int i;
+//     if(n==1)
+//     {
+//         head=temp2->next;
+//         free(temp2);
+//         return;
+//     }
+//     for(i=0;i<n-2;i++)
+//     {
+//         temp2=temp2->next;
+//     }
+//     struct Node* temp1;
+//     temp1=temp2->next;
+//     temp2->next=temp1->next;
+//     free(temp1);
+// }
 void Print()
 {
     struct Node* temp1=head;
