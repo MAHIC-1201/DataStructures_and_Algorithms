@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-struct Node
-{
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
     int data;
     struct Node *next;
 };
-struct Node *head;
+struct Node* head;
 void Insert(int data, int n)
 {
     int i;
@@ -37,25 +36,30 @@ void Print()
         temp1 = temp1->next;
         printf("\t");
     }
+    printf("\n");
 }
-void Printforward()
+void Reverse(struct Node*p)
 {
-    struct Node* temp1=head;
-    if(temp1!=NULL)
+    if(p->next==NULL)
     {
+        head=p;
         return;
     }
-    printf("%d",temp1->data);
-    Printforward(temp1->next);
-
+    Reverse(p->next);
+    struct Node *q=p->next;
+    q->next=p;
+    p->next=NULL;
 }
+
 int main()
 {
-    head = NULL;
-
-    Insert(2, 1); // 2
-    Insert(3, 2); // 2 3
-    Insert(4, 1); // 4 2 3
-    Insert(5, 2); // 4 5 2 3
+    head=NULL;
+    Insert(5,1);
+    Insert(4,2);
+    Insert(2,1);
+    Insert(6,2);
+    Print();
+    
+    Reverse(head);
     Print();
 }
